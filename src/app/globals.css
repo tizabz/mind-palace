@@ -4,48 +4,72 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --radius: 0.625rem;
+  --background: oklch(0.965 0.012 195);
+  --foreground: oklch(0.26 0.018 220);
+  --card: oklch(0.985 0.008 190);
+  --card-foreground: oklch(0.26 0.018 220);
+  --popover: oklch(0.985 0.008 190);
+  --popover-foreground: oklch(0.26 0.018 220);
+  --primary: oklch(0.58 0.07 175);
+  --primary-foreground: oklch(0.99 0.005 175);
+  --primary-hover: oklch(0.5 0.085 175);
+  --primary-hover-foreground: oklch(1 0 0);
+  --secondary: oklch(0.915 0.018 220);
+  --secondary-foreground: oklch(0.3 0.02 230);
+  --secondary-hover: oklch(0.86 0.024 220);
+  --secondary-hover-foreground: oklch(0.22 0.025 230);
+  --muted: oklch(0.93 0.014 210);
+  --muted-foreground: oklch(0.5 0.015 220);
+  --accent: oklch(0.5 0.09 200);
+  --accent-foreground: oklch(0.99 0.005 200);
+  --accent-hover: oklch(0.42 0.1 200);
+  --accent-hover-foreground: oklch(1 0 0);
+  --destructive: oklch(0.62 0.14 25);
+  --destructive-foreground: oklch(0.99 0.005 25);
+  --destructive-hover: oklch(0.54 0.16 25);
+  --destructive-hover-foreground: oklch(1 0 0);
+  --success: oklch(0.62 0.11 150);
+  --success-foreground: oklch(0.99 0.005 150);
+  --warning: oklch(0.78 0.12 75);
+  --warning-foreground: oklch(0.25 0.03 75);
+  --border: oklch(0.88 0.014 215);
+  --input: oklch(0.91 0.014 215);
+  --ring: oklch(0.58 0.07 175);
+  --radius: 0.75rem;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
+  --background: oklch(0.235 0.018 220);
+  --foreground: oklch(0.95 0.008 95);
+  --card: oklch(0.275 0.02 218);
+  --card-foreground: oklch(0.95 0.008 95);
+  --popover: oklch(0.275 0.02 218);
+  --popover-foreground: oklch(0.95 0.008 95);
+  --primary: oklch(0.72 0.085 175);
+  --primary-foreground: oklch(0.2 0.02 175);
+  --primary-hover: oklch(0.8 0.09 175);
+  --primary-hover-foreground: oklch(0.15 0.02 175);
+  --secondary: oklch(0.33 0.022 222);
+  --secondary-foreground: oklch(0.95 0.008 95);
+  --secondary-hover: oklch(0.4 0.026 222);
+  --secondary-hover-foreground: oklch(1 0 0);
+  --muted: oklch(0.31 0.018 220);
+  --muted-foreground: oklch(0.72 0.018 220);
+  --accent: oklch(0.66 0.095 200);
+  --accent-foreground: oklch(0.16 0.02 200);
+  --accent-hover: oklch(0.74 0.1 200);
+  --accent-hover-foreground: oklch(0.12 0.02 200);
+  --destructive: oklch(0.66 0.14 25);
+  --destructive-foreground: oklch(0.99 0.005 25);
+  --destructive-hover: oklch(0.74 0.15 25);
+  --destructive-hover-foreground: oklch(0.15 0.03 25);
+  --success: oklch(0.7 0.1 150);
+  --success-foreground: oklch(0.16 0.02 150);
+  --warning: oklch(0.82 0.11 75);
+  --warning-foreground: oklch(0.2 0.03 75);
   --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.72 0.085 175);
 }
 
 @theme inline {
@@ -57,14 +81,26 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-hover-foreground: var(--primary-hover-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-hover-foreground: var(--secondary-hover-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-hover-foreground: var(--accent-hover-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-hover: var(--destructive-hover);
+  --color-destructive-hover-foreground: var(--destructive-hover-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -79,7 +115,25 @@
   * {
     @apply border-border;
   }
+  html {
+    color-scheme: light dark;
+  }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 180ms;
+  }
+  *:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px color-mix(in oklch, var(--ring) 55%, transparent);
+    border-radius: var(--radius-sm);
   }
 }

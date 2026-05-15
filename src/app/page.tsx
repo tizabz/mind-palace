@@ -1,24 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import {
+  Brain,
+  BrainCircuit,
+  BrainCog,
+  Castle,
+  ListTodo,
+  LucideProps,
+} from "lucide-react";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const stack = [
-  { name: "Next.js 16", desc: "App Router + Server Components" },
-  { name: "Tailwind v4", desc: "Utility-first styling" },
-  { name: "shadcn/ui", desc: "Accessible component primitives" },
-  { name: "Framer Motion", desc: "Animations and transitions" },
-  { name: "Zustand", desc: "Lightweight state management" },
-  { name: "Axios", desc: "HTTP client with interceptors" },
+  {
+    name: "Higher Order Thinking",
+    desc: "Wana get your thinking ablities maxed out? Tap here (coming soon)",
+    icon: BrainCog,
+    url: "#",
+  },
+  {
+    name: "Decision Making Matrix",
+    desc: "I will help you decide, with math XD",
+    icon: ListTodo,
+    url: "/decision",
+  },
+  {
+    name: "Memory Palace",
+    desc: "Increase your Maximum Brain Storage With the memory palace techniques",
+    url: "/memories",
+    icon: ({ className, ...iconProps }: LucideProps) => (
+      <div className="relative -translate-y-1">
+        <Castle className={cn(className)} {...iconProps} />
+        <Brain
+          className={cn(
+            className,
+            "absolute -bottom-5 scale-[-75%] z-10 bg-background rounded-4xl",
+          )}
+        />
+      </div>
+    ),
+  },
 ];
 
 const container = {
@@ -40,27 +68,15 @@ export default function Home() {
         className="flex flex-col items-start gap-6"
       >
         <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
-          <Sparkles className="h-3.5 w-3.5" /> starter ready
+          <BrainCircuit className="h-3.5 w-3.5" /> its big brain time
         </span>
         <h1 className="text-5xl font-bold tracking-tight">
-          Build fast. Ship faster.
+          Keep Your Mind Sharp!
         </h1>
         <p className="max-w-2xl text-lg text-muted-foreground">
-          Opinionated Next.js starter with shadcn/ui, Tailwind, Framer Motion,
-          Zustand, and Axios. Drop-in foundation for new projects.
+          With Mind Palace, you can increase your performance in memorizing,
+          decision making, and higher order thinking
         </p>
-        <div className="flex gap-3">
-          <Button asChild>
-            <Link href="/dashboard">
-              Open dashboard <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link href="/api/hello?name=dev" target="_blank">
-              Test API
-            </Link>
-          </Button>
-        </div>
       </motion.div>
 
       <motion.div
@@ -71,13 +87,19 @@ export default function Home() {
       >
         {stack.map((s) => (
           <motion.div key={s.name} variants={item}>
-            <Card className="h-full">
-              <CardHeader>
-                <CardTitle className="text-lg">{s.name}</CardTitle>
-                <CardDescription>{s.desc}</CardDescription>
-              </CardHeader>
-              <CardContent />
-            </Card>
+            <Link href={s.url}>
+              <Card className="h-full overflow-hidden hover:-translate-y-2.5 transition-all duration-300">
+                <CardContent className="flex justify-around items-center flex-col p-8 h-48 relative group cursor-pointer">
+                  <s.icon className="size-12 text-primary opacity-70 group-hover:opacity-100 transition-all duration-300" />
+                  <CardTitle className="text-lg opacity-75 group-hover:opacity-100 transition-all duration-300">
+                    {s.name}
+                  </CardTitle>
+                  <CardDescription className="text-md text-foreground absolute text-center w-full h-[45%] p-4 bg-linear-to-t from-background/65 to-card backdrop-blur-xs invisible -bottom-4 opacity-0 group-hover:bottom-0 group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    {s.desc}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </Link>
           </motion.div>
         ))}
       </motion.div>

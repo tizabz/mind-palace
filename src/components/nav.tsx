@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
+import { AuthDialog } from "./auth-dialog";
+import { ThemeToggle } from "./theme-toggle";
 
 const links = [
   { href: "/", label: "Home" },
@@ -32,6 +33,10 @@ export function Nav() {
               </Link>
             </li>
           ))}
+          <li className="ml-2 flex items-center gap-2">
+            <ThemeToggle />
+            <AuthDialog />
+          </li>
         </ul>
       </div>
     </nav>

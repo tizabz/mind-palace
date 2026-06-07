@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Minus, Plus, RotateCcw, Send } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,8 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { api } from "@/lib/api";
-import { useAppStore } from "@/store/useAppStore";
+import { request } from "@/lib/apiCaller";
 
 interface HelloResponse {
   message: string;
@@ -21,29 +21,16 @@ interface HelloResponse {
 }
 
 export default function DashboardPage() {
-  const { count, increment, decrement, reset } = useAppStore();
-  const [data, setData] = useState<HelloResponse | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  async function fetchHello() {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await api.get<HelloResponse>("/api/hello", {
+  const [count, setCount] = useState(0);
+  const { data, error, isFetching, refetch } = useQuery({
+    queryKey: ["hello", count],
+    queryFn: () =>
+      request<HelloResponse>({
+        url: "/api/hello",
+        method: "GET",
         params: { name: `user-${count}` },
-      });
-      setData(res.data);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Request failed");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    fetchHello();
-  }, []);
+      }),
+  });
 
   return (
     <section className="mx-auto max-w-5xl px-6 py-12">
@@ -55,14 +42,14 @@ export default function DashboardPage() {
         Dashboard
       </motion.h1>
       <p className="mt-2 text-muted-foreground">
-        Zustand state + Axios + animated UI.
+        React Query + Axios + animated UI.
       </p>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Counter (Zustand)</CardTitle>
-            <CardDescription>State persists in localStorage.</CardDescription>
+            <CardTitle>Counter</CardTitle>
+            <CardDescription>Local component state.</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col items-center gap-4">
             <AnimatePresence mode="popLayout">
@@ -78,13 +65,21 @@ export default function DashboardPage() {
               </motion.span>
             </AnimatePresence>
             <div className="flex gap-2">
-              <Button size="icon" variant="outline" onClick={decrement}>
+              <Button
+                size="icon"
+                variant="outline"
+                onClick={() => setCount((c) => c - 1)}
+              >
                 <Minus />
               </Button>
-              <Button size="icon" variant="outline" onClick={reset}>
+              <Button
+                size="icon"
+                variant="outline"
+                onClick={() => setCount(0)}
+              >
                 <RotateCcw />
               </Button>
-              <Button size="icon" onClick={increment}>
+              <Button size="icon" onClick={() => setCount((c) => c + 1)}>
                 <Plus />
               </Button>
             </div>
@@ -93,12 +88,16 @@ export default function DashboardPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>API call (Axios)</CardTitle>
+            <CardTitle>API call (Axios + React Query)</CardTitle>
             <CardDescription>GET /api/hello?name=user-{count}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button onClick={fetchHello} disabled={loading} className="w-full">
-              <Send /> {loading ? "Loading..." : "Fetch"}
+            <Button
+              onClick={() => refetch()}
+              disabled={isFetching}
+              className="w-full"
+            >
+              <Send /> {isFetching ? "Loading..." : "Fetch"}
             </Button>
             <AnimatePresence mode="wait">
               {error && (
@@ -109,7 +108,7 @@ export default function DashboardPage() {
                   exit={{ opacity: 0 }}
                   className="rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive"
                 >
-                  {error}
+                  {(error as Error).message}
                 </motion.pre>
               )}
               {data && !error && (

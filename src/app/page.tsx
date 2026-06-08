@@ -33,8 +33,8 @@ const stack = [
   },
   {
     name: "Memory Palace",
-    desc: "Increase your Maximum Brain Storage With the memory palace techniques",
-    url: "/memories",
+    desc: "Increase your Maximum Brain Storage With the memory palace techniques (coming soon)",
+    url: "#",
     icon: ({ className, ...iconProps }: LucideProps) => (
       <div className="relative -translate-y-1">
         <Castle className={cn(className)} {...iconProps} />
@@ -94,7 +94,7 @@ export default function Home() {
                   <CardTitle className="text-lg opacity-75 group-hover:opacity-100 transition-all duration-300">
                     {s.name}
                   </CardTitle>
-                  <CardDescription className="text-md text-foreground absolute text-center w-full h-[45%] p-4 bg-linear-to-t from-background/65 to-card backdrop-blur-xs invisible -bottom-4 opacity-0 group-hover:bottom-0 group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                  <CardDescription className="text-md text-foreground absolute text-center w-full h-1/2 p-4 bg-linear-to-t from-background/65 to-card backdrop-blur-xs invisible -bottom-4 opacity-0 group-hover:bottom-0 group-hover:opacity-100 group-hover:visible transition-all duration-300">
                     {s.desc}
                   </CardDescription>
                 </CardContent>

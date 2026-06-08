@@ -167,7 +167,7 @@ const Result = () => {
                   initial={{ height: "0%" }}
                   animate={{ height: "100%" }}
                   transition={{ duration: 0.4, delay, ease: "easeOut" }}
-                  className="flex flex-col items-center justify-center gap-2 bg-primary text-primary-foreground w-full overflow-hidden text-xs sm:text-sm"
+                  className="flex flex-col items-center justify-center gap-2 bg-primary text-primary-foreground w-full overflow-hidden text-xs sm:text-sm rounded-t-lg"
                 >
                   <motion.span
                     initial={{ opacity: 0 }}

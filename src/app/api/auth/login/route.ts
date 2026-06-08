@@ -2,7 +2,7 @@ import { loginSchema } from "@/lib/validation";
 import connectDB from "@/lib/db";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
+import jwt, { type SignOptions } from "jsonwebtoken";
 import User from "@/models/User";
 
 export async function POST(req: Request) {
@@ -12,7 +12,11 @@ export async function POST(req: Request) {
 
     if (!parsed.success) {
       return NextResponse.json(
-        { error: parsed.error.errors.map((err) => err.message).join(", ") },
+        {
+          error: parsed.error.issues
+            .map((err: { message: string }) => err.message)
+            .join(", "),
+        },
         { status: 400 },
       );
     }
@@ -41,13 +45,13 @@ export async function POST(req: Request) {
     const accessToken = jwt.sign(
       { id: user._id, email: user.email, role: user.role },
       process.env.JWT_SECRET as string,
-      { expiresIn: process.env.ACCESS_TE },
+      { expiresIn: process.env.ACCESS_TE } as SignOptions,
     );
 
     const refreshToken = jwt.sign(
       { id: user._id },
       process.env.JWT_REFRESH_SECRET as string,
-      { expiresIn: process.env.REFRESH_TE },
+      { expiresIn: process.env.REFRESH_TE } as SignOptions,
     );
     return NextResponse.json({
       message: "Login successful",

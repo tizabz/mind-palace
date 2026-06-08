@@ -13,7 +13,7 @@ import {
   Plus,
   Trash2,
 } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { Suspense, useCallback, useMemo, useState } from "react";
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -194,7 +194,7 @@ function DeleteDecisionDialog({
   );
 }
 
-const DecisionPage = () => {
+const DecisionPageInner = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { status } = useSession();
@@ -314,7 +314,7 @@ const DecisionPage = () => {
                 one.
               </p>
             ) : (
-              <div className="w-full grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 my-4">
+              <div className="w-full grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-8">
                 {decisions.map((decision) => (
                   <Card
                     key={decision.id}
@@ -334,14 +334,14 @@ const DecisionPage = () => {
                         </p>
                         <div className="mt-auto flex justify-end gap-2">
                           <Button
-                            className="size-7 rounded-4xl p-0 cursor-pointer"
+                            className="size-10 sm:size-7 rounded-4xl p-0 cursor-pointer"
                             onClick={() => selectDecision(decision.id)}
                             title="Open"
                           >
                             <ExternalLinkIcon className="size-4!" />
                           </Button>
                           <Button
-                            className="size-7 rounded-4xl p-0 cursor-pointer"
+                            className="size-10 sm:size-7 rounded-4xl p-0 cursor-pointer"
                             variant="secondary"
                             onClick={() => setEditingId(decision.id)}
                             title="Edit"
@@ -349,7 +349,7 @@ const DecisionPage = () => {
                             <PencilIcon className="size-4!" />
                           </Button>
                           <Button
-                            className="size-7 rounded-4xl p-0 cursor-pointer"
+                            className="size-10 sm:size-7 rounded-4xl p-0 cursor-pointer"
                             variant="destructive"
                             onClick={() => setDeletingId(decision.id)}
                             title="Delete"
@@ -454,5 +454,11 @@ const DecisionPage = () => {
     </section>
   );
 };
+
+const DecisionPage = () => (
+  <Suspense fallback={null}>
+    <DecisionPageInner />
+  </Suspense>
+);
 
 export default DecisionPage;

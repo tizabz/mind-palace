@@ -17,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { LogOut } from "lucide-react";
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 
@@ -167,7 +168,7 @@ export function AuthDialog() {
           className="cursor-pointer"
           onClick={() => signOut()}
         >
-          Sign out
+          <LogOut />
         </Button>
       </div>
     );

@@ -7,7 +7,6 @@ import { AuthDialog } from "./auth-dialog";
 import { ThemeToggle } from "./theme-toggle";
 
 const links = [
-  { href: "/", label: "Home" },
   { href: "/dashboard", label: "Dashboard" },
 ];
 
@@ -15,7 +14,7 @@ export function Nav() {
   const pathname = usePathname();
   return (
     <nav className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
+      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-3 md:px-6">
         <Link href="/" className="font-semibold tracking-tight">
           Mind Palace
         </Link>
@@ -25,7 +24,7 @@ export function Nav() {
               <Link href={l.href}>
                 <Button
                   size={"sm"}
-                  className="transition-colors h-8 py-0.5 mx-1 cursor-pointer"
+                  className="transition-colors h-8 py-0.5 md:mx-1 cursor-pointer max-sm:px-0.5!"
                   variant={pathname === l.href ? "default" : "ghost"}
                 >
                   {l.label}
@@ -33,7 +32,7 @@ export function Nav() {
               </Link>
             </li>
           ))}
-          <li className="ml-2 flex items-center gap-2">
+          <li className="flex items-center gap-2">
             <ThemeToggle />
             <AuthDialog />
           </li>

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/db";
-import jwt from "jsonwebtoken";
+import jwt, { type JwtPayload, type SignOptions } from "jsonwebtoken";
 import User from "@/models/User";
 
 export async function POST(req: Request) {
@@ -18,12 +18,15 @@ export async function POST(req: Request) {
   }
 
   try {
-    const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET as string);
+    const decoded = jwt.verify(
+      refreshToken,
+      process.env.JWT_REFRESH_SECRET as string,
+    ) as JwtPayload;
 
     const newAccessToken = jwt.sign(
       { id: decoded.id, email: user.email },
       process.env.JWT_SECRET as string,
-      { expiresIn: process.env.Access_TE }
+      { expiresIn: process.env.Access_TE } as SignOptions,
     );
 
     return NextResponse.json({ accessToken: newAccessToken });

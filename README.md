@@ -1,5 +1,6 @@
 # Mind Palace
 #### Video Demo:  https://youtu.be/aFH7g58lSVo
+#### Live Demo: https://mind-palace.yaspardaz.ir
 #### Description:
 Most of us run our minds the same way we did in school — react, remember what we can, decide on instinct. Mind Palace is a project built on a different idea: that thinking is a skill, and skills can be trained. It's a single home for three tools, each aimed at a different part of how we use our minds.
 

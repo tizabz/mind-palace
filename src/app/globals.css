@@ -137,3 +137,10 @@
     border-radius: var(--radius-sm);
   }
 }
+
+/* Hide reCAPTCHA v3 badge. Google ToS allows this only if the
+   disclosure text + Privacy/Terms links are shown to users
+   (see auth-dialog.tsx). */
+.grecaptcha-badge {
+  visibility: hidden;
+}

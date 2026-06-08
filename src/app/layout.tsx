@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "mind-palace",
-  description: "Next.js + shadcn + framer-motion + zustand starter",
+  title: "Mind Palace",
+  description:
+    "With Mind Palace, you can increase your performance in memorizing, decision making, and higher order thinking",
 };
 
 export default function RootLayout({

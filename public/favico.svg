@@ -1,0 +1,27 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <circle cx="12" cy="12" r="12"/>
+  <path class="cls-1" d="M-14.91,6.38A2.28,2.28,0,0,0-17.18,4.1a2.27,2.27,0,0,0-2.27,2.27v.11a3,3,0,0,0-2.18,3.68,2.68,2.68,0,0,0,.27.68,3,3,0,0,0-.44,4.26,3.18,3.18,0,0,0,.86.73,3,3,0,0,0,2.61,3.39,3,3,0,0,0,3.39-2.62,2.34,2.34,0,0,0,0-.38Z" transform="translate(27.48 0.33)"/>
+  <path class="cls-1" d="M-17.18,12.44a3.42,3.42,0,0,0,2.27-3" transform="translate(27.48 0.33)"/>
+  <path class="cls-1" d="M-19.45,6.48a2.27,2.27,0,0,0,.3,1" transform="translate(27.48 0.33)"/>
+  <path class="cls-1" d="M-21.36,10.84a3.41,3.41,0,0,1,.44-.3" transform="translate(27.48 0.33)"/>
+  <path class="cls-1" d="M-19.45,16.22a3,3,0,0,1-1.49-.39" transform="translate(27.48 0.33)"/>
+  <path class="cls-1" d="M-14.91,12.44h3" transform="translate(27.48 0.33)"/>
+  <path class="cls-1" d="M-14.91,16.22h4.54a1.52,1.52,0,0,1,1.51,1.51v.76" transform="translate(27.48 0.33)"/>
+  <path class="cls-1" d="M-14.91,8.65h6.05" transform="translate(27.48 0.33)"/>
+  <path class="cls-1" d="M-11.89,8.65V6.38a1.52,1.52,0,0,1,1.52-1.51" transform="translate(27.48 0.33)"/>
+  <circle class="cls-1" cx="15.6" cy="12.76" r="0.38"/>
+  <circle class="cls-1" cx="17.11" cy="5.19" r="0.38"/>
+  <circle class="cls-1" cx="18.62" cy="18.82" r="0.38"/>
+  <circle class="cls-1" cx="18.62" cy="8.98" r="0.38"/>
+</svg>
